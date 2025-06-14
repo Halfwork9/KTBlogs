@@ -31,7 +31,7 @@ export interface Blog {
   image: string;
   category: string;
   author: string;
-  created_at: string;
+  create_at: string;
 }
 
 interface AppContextType {
