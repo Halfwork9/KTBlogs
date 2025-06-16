@@ -222,7 +222,7 @@ const ProfilePage = () => {
                         />
                       </div>
                       <div>
-                        <Label>instagram</Label>
+                        <Label>Instagram</Label>
                         <Input
                           value={formData.instagram}
                           onChange={(e) =>
