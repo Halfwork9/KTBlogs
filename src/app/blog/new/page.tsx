@@ -10,7 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { RefreshCw } from "lucide-react";
+import { RefreshCw, Sparkles, Wand2 } from "lucide-react";
 import React, { useMemo, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import Cookies from "js-cookie";
@@ -215,10 +215,19 @@ const fileInputRef = useRef<HTMLInputElement | null>(null);
                   onClick={aiTitleResponse}
                   disabled={aiTitle}
                 >
-                  <RefreshCw className={aiTitle ? "animate-spin" : ""} />
+                  
+                  <Wand2 className={aiTitle ? "animate-spin" : ""} size={16} />
+                   {!aiTitle && <span>Fix Title</span>}
+                   
                 </Button>
               )}
+              
             </div>
+           {formData.title && !aiTitle && (
+  <p className="text-xs text-gray-500 mt-1 ml-1">
+    Click “Fix Title” to improve title grammar using AI.
+  </p>
+)}
 
             <Label>Description</Label>
             <div className="flex justify-center items-center gap-2">
@@ -240,11 +249,18 @@ const fileInputRef = useRef<HTMLInputElement | null>(null);
                   type="button"
                   disabled={aiDescripiton}
                 >
-                  <RefreshCw className={aiDescripiton ? "animate-spin" : ""} />
+                  <Sparkles className={aiDescripiton ? "animate-pulse" : ""} size={16} />
+                  {!aiDescripiton && <span>AI Description</span>}
                 </Button>
+                
               )}
+             
             </div>
-
+             {formData.title && !aiDescripiton && (
+  <p className="text-xs text-gray-500 mt-1 ml-1">
+    Don’t want to write a description? Let AI do it for you.
+  </p>
+)}
             <Label>Category</Label>
             <Select
               value={formData.category}
